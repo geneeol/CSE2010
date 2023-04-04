@@ -150,9 +150,32 @@ void printInorder(ThreadedPtr root)
 /*
 Delete the Tree
 */
-void DeleteTree(ThreadedPtr root){
-	return ;
+// TODO 이거 구현 빼먹을 뻔..
+void DeleteTree(ThreadedPtr root)
+{
+	ThreadedPtr	tmp;
+	ThreadedPtr	prev;
+
+	tmp = root;
+	while (1)
+	{
+		prev = tmp;
+		tmp = InSucc(tmp);
+		free(prev);
+		if (tmp == root)
+			return ;
+	}
 }
+
+// void	my_inorder(ThreadedPtr node)
+// {
+// 	if (!node->left_thread && !node->right_thread)
+// 	{
+// 		my_inorder(node->left_child);
+// 		printf("%d ", node->data);
+// 		my_inorder(node->right_child);
+// 	}
+// }
 
 int main(int argc, char *argv[]){
 	fin=fopen(argv[1], "r");
@@ -173,10 +196,8 @@ int main(int argc, char *argv[]){
 			return 0;
 		}
 	}
-
 	printInorder(root);
 	DeleteTree(root);
-	
 	
 	fclose(fin);
 	fclose(fout);
