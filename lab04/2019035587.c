@@ -63,6 +63,7 @@ int Insert(ThreadedPtr root, int root_idx, ElementType data, int idx)
 	if (!node)
 		return (0);
 	node->data = data;
+
 	divisor = 1;
 	while (idx / divisor != 1)
 		divisor *= 2;
@@ -77,6 +78,7 @@ int Insert(ThreadedPtr root, int root_idx, ElementType data, int idx)
 			parent_of_target = parent_of_target->left_child;
 		divisor /= 2;
 	}
+
 	if (idx % 2 == 1) // 오른쪽 자식 여부 확인
 	{
 		node->left_thread = 1;
