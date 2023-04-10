@@ -1,0 +1,11 @@
+insertion 25
+insertion 15
+insertion 35
+insertion 10
+insertion 20
+insertion 30
+insertion 40
+15 is in the tree
+35 is in the tree
+finding error: 55 is not in the tree
+10 15 20 25 30 35 40

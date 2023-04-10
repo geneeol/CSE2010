@@ -1,0 +1,17 @@
+insertion 1
+here
+insertion 2
+here
+insertion 3
+here
+insertion 5
+here
+insertion error: 5 is already in the tree
+1 2 3 5 
+5 is in the tree
+finding error: 4 is not in the tree
+delete 5
+deletion error: 5 is not in the tree
+1 2 3 
+insertion 5
+here
