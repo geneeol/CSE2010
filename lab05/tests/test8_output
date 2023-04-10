@@ -1,0 +1,41 @@
+insert 50
+insert 30
+insert 70
+insert 20
+insert 40
+insert 60
+insert 80
+insert 10
+insert 35
+insert 55
+insert 65
+insert 90
+insert 25
+insert 45
+insert 58
+insert 62
+insert 75
+insert 95
+insert 5
+insert 15
+insert 33
+insert 37
+insert 53
+insert 57
+insert 61
+insert 63
+insert 73
+insert 77
+insert 85
+insert 100
+delete 100
+delete 5
+delete 50
+delete 40
+delete 65
+finding error: 50 is not in the tree
+finding error: 40 is not in the tree
+finding error: 65 is not in the tree
+25 is in the tree
+95 is in the tree
+10 15 20 25 30 33 35 37 45 53 55 57 58 60 61 62 63 70 73 75 77 80 85 90 95 

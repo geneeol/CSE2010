@@ -1,0 +1,8 @@
+insert 10
+insert 5
+insert 15
+insert 7
+insert 12
+insertion error: 10 is already in the tree
+insertion error: 5 is already in the tree
+5 7 10 12 15 

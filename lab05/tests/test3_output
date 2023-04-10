@@ -1,0 +1,9 @@
+insert 20
+insert 10
+insert 30
+insert 15
+10 is in the tree
+20 is in the tree
+30 is in the tree
+15 is in the tree
+finding error: 25 is not in the tree

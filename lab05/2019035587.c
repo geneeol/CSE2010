@@ -1,3 +1,4 @@
+// mine
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -66,7 +67,7 @@ void main(int argc, char* argv[]){
 		}
 	}
 	deleteTree(root);
-	//system("leaks a.out");
+	// system("leaks a.out");
 }
 
 /*
@@ -86,7 +87,7 @@ Tree insertNode(Tree root, int key)
 		root->value = key;
 		root->left = NULL;
 		root->right = NULL;
-		fprintf(fout, "insertion %d\n", key);
+		fprintf(fout, "insert %d\n", key);
 	}
 	else if (key < root->value)
 		root->left = insertNode(root->left, key); // 삽입하는 노드를 제외하고는 자기자신을 반환 후 할당한다

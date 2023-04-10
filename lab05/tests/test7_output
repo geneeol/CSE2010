@@ -1,0 +1,13 @@
+insert 50
+insert 30
+insert 70
+insert 20
+insert 40
+insert 60
+insert 80
+delete 20
+delete 70
+50 is in the tree
+finding error: 20 is not in the tree
+finding error: 70 is not in the tree
+30 40 50 60 80 
