@@ -26,7 +26,6 @@ void main(int argc, char* argv[]){
 
 	Tree root = NULL;
 
-	// TODO: 우분투에선 feof 동작 다른지 검사 (맥에서는 pi가 마지막 줄이면 insertion을 한번 더함)
 	while(!feof(fin)){
 		fscanf(fin, "%c", &cv);
 		switch(cv){
