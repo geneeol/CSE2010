@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
-
-#include<string.h> //h 추가한 헤더
+#include<string.h>
 
 enum	state
 {
@@ -26,7 +25,8 @@ void printMaze(DisjointSets *sets, int num);
 void freeMaze(DisjointSets *sets, DisjointSets *maze_print);
 
 
-int main(int argc, char* agrv[]) {
+int main(int argc, char* agrv[])
+{
 	srand((unsigned int)time(NULL));
 
 	int num, i;
@@ -50,6 +50,7 @@ int main(int argc, char* agrv[]) {
 
 	return 0;
 }
+
 /*
 Allocate and Initialize Disjoint sets
     "sets": have num*num disjoint sets
@@ -62,10 +63,10 @@ void init(DisjointSets *sets, DisjointSets *maze_print, int num)
 
 	sets->size_maze = num * num;
 	sets->ptr_arr = malloc(sizeof(int) * (sets->size_maze + 1));
+	// n개의 disjoint set 생성
 	memset(sets->ptr_arr, 0, sizeof(int) * (sets->size_maze + 1));
 	maze_print->size_maze = num * num;
 	maze_print->ptr_arr = malloc(sizeof(int) * (2 * maze_print->size_maze + 1));
-
 	for (i = 0; i < 2 * maze_print->size_maze + 1; i++)
 		maze_print->ptr_arr[i] = UNBROKEN;
 	maze_print->ptr_arr[num * num] = BROKEN;
@@ -87,8 +88,11 @@ void Union(DisjointSets *sets, int i, int j)
 		printf("Error: i: %d and j: %d are already in same set\n", i, j);
 		return ;
 	}
-	// path compression에서 rank를 기록할 방법이 없기에 무조건 i->j로 합친다.
-	sets->ptr_arr[root1] = root2;
+	// path compression 탓에 rank를 기록할 방법이 없기에 랜덤한 방향으로 합친다
+	if (rand() % 2 == 0)
+		sets->ptr_arr[root1] = root2;
+	else
+		sets->ptr_arr[root2] = root1;
 }
 
 /*
@@ -135,12 +139,12 @@ void createMaze(DisjointSets *sets, DisjointSets *maze_print, int num)
 	while (1)
 	{
 		// 시간복잡도를 줄이기 위해 shortcut circuit evaluation 활용
-		// 항상 앞의 조건식부터 평가하여 앞의 조건이 달성될 때까지 뒤를 평가하지 않음
+		// 항상 앞의 조건식부터 평가하여 앞의 조건이 달성될 때까지 뒤 조건식을 평가하지 않음
 		if (find(sets, 1) == find(sets, sets->size_maze)
 			&& all_connected(sets))
 			break ;
 		edge = rand() % (2 * num * num + 1);
-		if (is_boundary(edge, num))
+		if (is_boundary(edge, num) || maze_print->ptr_arr[edge] == BROKEN)
 			continue ;
 		if (edge <= num * num) // x축과 수직인 벽, 벽을 기준으로 양옆 두점 union
 		{
