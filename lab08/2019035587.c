@@ -101,7 +101,7 @@ Heap* CreateHeap(int heapSize)
 
 	ret = malloc(sizeof(Heap));
 	ret->Elements = malloc(sizeof(int) * (heapSize + 1));
-	ret->Elements[0] = -1;
+	ret->Elements[0] = INF;
 	ret->Size = 0;
 	ret->Capacity = heapSize;
 	return (ret);
@@ -232,7 +232,6 @@ get size of heap
 return:
 	size of heap
 */
-// main문에서 반복문 조건이 0 <= i < size로 설정돼 있어서 +1을 해주었다.
 int Size(Heap *heap)
 {
 	return (heap->Size);
