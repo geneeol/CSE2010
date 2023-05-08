@@ -1,0 +1,9 @@
+insert 30
+insert 10
+insert 50
+insert 40
+insert 20
+50 40 30 10 20 
+insert error : heap is full
+max element : 50 deleted
+max element : 40 deleted

@@ -1,0 +1,3 @@
+insert error : heap is full
+delete error : heap is empty
+print error : heap is empty

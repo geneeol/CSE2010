@@ -1,0 +1,5 @@
+insert 30
+insert 15
+insert error : 30 is already in the heap
+30 15 
+

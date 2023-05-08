@@ -1,0 +1,5 @@
+insert 25
+insert 50
+insert 10
+insert error : heap is full
+50 25 10 

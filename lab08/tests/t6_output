@@ -1,0 +1,24 @@
+insert 50
+insert 70
+70 50 
+insert 25
+70 50 25 
+insert 30
+insert 10
+70 50 25 30 10 
+insert 90
+90 50 70 30 10 25 
+insert 40
+90 50 70 30 10 25 40 
+insert 20
+90 50 70 30 10 25 40 20 
+insert 60
+90 60 70 50 10 25 40 20 30 
+insert 80
+90 80 70 50 60 25 40 20 30 10 
+max element : 90 deleted
+80 60 70 50 10 25 40 20 30 
+insert 100
+100 80 70 50 60 25 40 20 30 10 
+60 is in the heap
+finding error : 200 is not in the heap
