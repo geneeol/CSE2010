@@ -1,0 +1,5 @@
+print error : tree is empty!
+finding error : key 3 is not in the tree!
+print error : tree is empty!
+key 20 found
+10 20 30 43 44 58 69 77 600 700 
