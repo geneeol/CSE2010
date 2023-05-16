@@ -70,7 +70,8 @@ int main(int argc, char* argv[]){
 				}else{
 					elements = GetElements(maxHeap);
 					int size = Size(maxHeap);
-					for(int i = 0; elements[i] > -1 && i < size; i++){
+					// 여기 조건문 순서 때문에 heapbufferoverflow 발생했음..
+					for(int i = 0; i < size && elements[i] > -1; i++){
 						fprintf(fout, "%d ", elements[i]);
 					}
 					fprintf(fout, "\n");
