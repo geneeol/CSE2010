@@ -54,7 +54,7 @@ int main(int argc, char* argv[]){
 					fprintf(fout, "finding error : key %d is not in the tree!\n", key);
 				break;
 			case 'p':
-				if (root->n_key == 0) // -1로 수정(원래 1)
+				if (root->n_key == 0) // size(n_child) 대신 n_key로 수정
 					fprintf(fout, "print error : tree is empty!");
 				else
 					PrintTree(root);
@@ -66,6 +66,10 @@ int main(int argc, char* argv[]){
 	DeleteTree(root);
 	fclose(fin);
 	fclose(fout);
+
+	// 추가
+	// root = 0;
+	// system("leaks a.out");
 
 	return 0;
 }
@@ -82,13 +86,13 @@ BNodePtr CreateTree(int order)
 
 	root = malloc(sizeof(BNode));
 	root->order = order;
-	root->child = malloc(sizeof(BNodePtr) * order); // 한칸 크게 할당
+	root->child = malloc(sizeof(BNodePtr) * order); // 0번 인덱스부터 사용
 	for (int i = 0; i < order; i++)
 		root->child[i] = NULL;
-	root->key = malloc(sizeof(int) * order);
-	memset(root->key, 0, sizeof(int) * order); // TODO: 키값 몇으로? 
+	root->key = malloc(sizeof(int) * order); // 0번 인덱스부터 사용, 한칸 크게 할당
+	memset(root->key, 0, sizeof(int) * order);
 	root->is_leaf = 1;
-	root->n_child = -1; // TODO: 왜 사이즈가 1이지..?
+	root->n_child = -1; // 추후 0으로 변경해도 될듯
 	root->n_key = 0;
 	return (root);
 }
@@ -113,9 +117,9 @@ BNodePtr CreateNode(int order, int is_leaf)
 }
 
 // split parent->child[idx] into two nodes
-// 현재 child1이 가득차있을 때 이걸 쪼개는 것임
-// order가 3일 때, child1이 empty가 됨. 따라서 이 부분에 대한 처리 추가하면 좋을듯
-// 위 경우 parent->child[idx]를 아예 없애는게 맞는듯 
+// 현재 child1 key가 가득차있을 때 이걸 쪼개는 것임
+// order가 3일 때, child1이 empty가 됨. (child1 empty, child2 1개, mid key 위로 올라감)
+// 위 경우에 대한 별도 처리가 추가되면 좋을듯
 void SplitChild(BNodePtr parent, int idx)
 {
 	BNodePtr	child1, child2;
@@ -124,22 +128,24 @@ void SplitChild(BNodePtr parent, int idx)
 	child1 = parent->child[idx];
 	child2 = CreateNode(parent->order, child1->is_leaf);
 	// 여기 child2 키 개수를 랜덤하게 하는게 바람직
-	// order가 4, 5 일 때 child2->n_key  각각 1, 2
-	// child2->key: 
-	// order = 2t -1 꼴일 때, z->n = t - 1
+	// 현재는 order가 4, 5 일 때 child2->n_key  각각 1, 2
 	child2->n_key = (child1->order + 1) / 2 - 1;
+	// 짝수 차수일 경우 mid는 항상 정중앙, 홀수 차수일경우 mid는 정중앙의 왼쪽
 	mid = child1->order / 2 - 1; // order가 3일 때 mid는 0 
 	for (int i = 0; i < child2->n_key; i++)
-		child2->key[i] = child1->key[i + mid + 1];
+		child2->key[i] = child1->key[i + mid + 1]; // child2 키에 child1 정중앙 오른쪽에 있는 키 옮기기
+	// child1이 leaf가 아닐 경우 child1의 child를 child2의 child로 옮기기
 	if (!child1->is_leaf)
 	{
 		for (int i = 0; i < child2->n_key + 1; i++)
 			child2->child[i] = child1->child[i + mid + 1];
 	}
 	child1->n_key = mid; // child1키 개수는 mid개수 0 1 mid(2) 3 4 (5)
+	// 부모에 child2 추가하기 위해 child배열 한칸씩 shift
 	for (int i = parent->n_key; i > idx; i--)
 		parent->child[i + 1] = parent->child[i];
 	parent->child[idx + 1] = child2;
+	// 부모에 mid key 추가하기 위해 key배열 한칸씩 shift
 	for (int i = parent->n_key - 1; i >= idx; i--)
 		parent->key[i + 1] = parent->key[i];
 	parent->key[idx] = child1->key[mid];
@@ -180,15 +186,22 @@ void insert_nonfull(BNodePtr node, int key)
 Insert the key value into BTree 
 key: the key value in BTree node 
 */
+
+// preemptive split을 적용함.
+// 짝수일 때는 항상 최적, 홀수일 때는 랜덤하게 split하는게 바람직하나, 구현의 편의성을 위해
+// 항상 오른쪽 자식 키개수가 더 많도록 split함
 void Insert(BNodePtr *root, int key)
 {
 	BNodePtr	new_root;
 
-	if ((*root)->n_child == (*root)->order - 1)
+	// top-down으로 내려가며 현재 노드의 key배열이 꽉 차있으면 split을 진행한다.
+	// 그외는 insert_nonfull을 통해 삽입한다.
+	if ((*root)->n_key == (*root)->order - 1)
 	{
+		// 새 노드 동적할당후 기존 root를 split
 		new_root = CreateNode((*root)->order, 0);
 		new_root->child[0] = *root;
-		new_root->n_child = 1;
+		new_root->n_child = 1; 
 		*root = new_root;
 		SplitChild(new_root, 0);
 		insert_nonfull(new_root, key);
@@ -222,7 +235,6 @@ Print Tree, inorder traversal
 void PrintTree(BNodePtr root)
 {
 	int 		i;
-	static int	is_last = 0;
 
 	for (i = 0; i < root->n_key; i++)
 	{
@@ -231,20 +243,20 @@ void PrintTree(BNodePtr root)
 		fprintf(fout, "%d ", root->key[i]);
 	}
 	if (!root->is_leaf)
-	{
-		is_last = 1;
 		PrintTree(root->child[i]);
-	}
-	if (is_last)
-	{
-		fprintf(fout, "\n");
-		is_last = 0;
-	}
 }
 
 /*
 Free memory, delete a BTree completely 
 */
-void DeleteTree(BNodePtr root){
-
+void DeleteTree(BNodePtr root)
+{
+	for (int i = 0; i < root->n_key + 1; i++)
+	{
+		if (!root->is_leaf)
+			DeleteTree(root->child[i]);
+	}
+	free(root->child);
+	free(root->key);
+	free(root);
 }

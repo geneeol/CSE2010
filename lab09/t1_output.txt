@@ -1,0 +1,3 @@
+key 20 found
+finding error : key 55 is not in the tree!
+10 20 30 40 50 60 70 80 90 100 
