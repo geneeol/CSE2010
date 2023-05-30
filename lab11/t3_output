@@ -1,0 +1,9 @@
+Insert 1 into address 0
+Insertion Error: table is full
+Insertion Error: table is full
+Deletion Error: 2 is not in the table
+Deletion Error: 3 is not in the table
+Delete 1
+Insert 5 into address 0
+1 is not in the table
+5 

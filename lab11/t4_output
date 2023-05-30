@@ -1,0 +1,57 @@
+Insert 10 into address 10
+Insert 20 into address 20
+Insert 30 into address 30
+Insert 40 into address 40
+Insert 50 into address 50
+Insert 60 into address 60
+Insert 70 into address 70
+Insert 80 into address 80
+Insert 90 into address 90
+Insert 100 into address 0
+Insert 110 into address 11
+Insert 120 into address 21
+Insert 130 into address 31
+Insert 140 into address 41
+Insert 150 into address 51
+Insert 160 into address 61
+Insert 170 into address 71
+Insert 180 into address 81
+Insert 190 into address 91
+Insert 200 into address 1
+Insert 210 into address 12
+Insert 220 into address 22
+Insert 230 into address 32
+Insert 240 into address 42
+Insert 250 into address 52
+Insert 260 into address 62
+Insert 270 into address 72
+Insert 280 into address 82
+Insert 290 into address 92
+Insert 300 into address 2
+Insert 310 into address 13
+Insert 320 into address 23
+Insert 330 into address 33
+Insert 340 into address 43
+Insert 350 into address 53
+Insert 360 into address 63
+Insert 370 into address 73
+Insert 380 into address 83
+Insert 390 into address 93
+Insert 400 into address 3
+Insert 410 into address 14
+Insert 420 into address 24
+Insert 430 into address 34
+Insert 440 into address 44
+Insert 450 into address 54
+Insert 460 into address 64
+Insert 470 into address 74
+Insert 480 into address 84
+Insert 490 into address 94
+Insert 500 into address 4
+30 is in the table
+330 is in the table
+800 is not in the table
+Delete 270
+Delete 500
+Deletion Error: 1000 is not in the table
+100 200 300 400 0 0 0 0 0 0 10 110 210 310 410 0 0 0 0 0 20 120 220 320 420 0 0 0 0 0 30 130 230 330 430 0 0 0 0 0 40 140 240 340 440 0 0 0 0 0 50 150 250 350 450 0 0 0 0 0 60 160 260 360 460 0 0 0 0 0 70 170 0 370 470 0 0 0 0 0 80 180 280 380 480 0 0 0 0 0 90 190 290 390 490 0 0 0 0 0 

@@ -1,0 +1,11 @@
+Insert 2 into address 2
+Insert 4 into address 4
+Insert 8 into address 8
+Insert 32 into address 0
+Insert 48 into address 1
+Insert 54 into address 6
+Insert 16 into address 3
+Deletion Error: 10 is not in the table
+Delete 48
+Insert 17 into address 1
+32 17 2 16 4 0 54 0 8 0 0 0 0 0 0 0 

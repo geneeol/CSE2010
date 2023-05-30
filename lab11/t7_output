@@ -1,0 +1,14 @@
+Insert 13 into address 13
+Insert 113 into address 14
+Insert 213 into address 17
+Insert 313 into address 22
+Insert 413 into address 29
+113 is in the table
+513 is not in the table
+Insert 513 into address 38
+513 is in the table
+Delete 113
+113 is not in the table
+Delete 513
+513 is not in the table
+0 0 0 0 0 0 0 0 0 0 0 0 0 13 0 0 0 213 0 0 0 0 313 0 0 0 0 0 0 413 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

@@ -1,0 +1,6 @@
+Insert 89 into address 9
+Insert 18 into address 8
+Insert 49 into address 0
+Insert 58 into address 2
+Insert 69 into address 3
+49 0 58 69 0 0 0 0 18 89 

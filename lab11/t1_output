@@ -1,0 +1,7 @@
+Insert 5 into address 0
+Insert 10 into address 1
+Insert 3 into address 3
+5 is in the table
+Delete 5
+5 is not in the table
+0 10 0 3 0 

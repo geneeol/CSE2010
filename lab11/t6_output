@@ -1,0 +1,25 @@
+Insert 1 into address 1
+Insert 11 into address 2
+Insert 21 into address 5
+Insert 31 into address 0
+Insert 41 into address 7
+Insert 51 into address 6
+Insertion Error: table is full
+Insertion Error: table is full
+Insertion Error: table is full
+Insertion Error: table is full
+1 is in the table
+21 is in the table
+100 is not in the table
+Delete 31
+Delete 41
+21 is in the table
+31 is not in the table
+51 is in the table
+Insert 101 into address 0
+Insert 111 into address 7
+Deletion Error: 1000 is not in the table
+101 is in the table
+111 is in the table
+31 is not in the table
+101 1 11 0 0 21 51 111 0 0 

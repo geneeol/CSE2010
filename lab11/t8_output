@@ -1,0 +1,21 @@
+Insert 1 into address 1
+Insert 8 into address 2
+Insert 15 into address 5
+Insert 22 into address 3
+Insertion Error: table is full
+Insertion Error: table is full
+Insertion Error: table is full
+Insertion Error: table is full
+Delete 15
+Insert 57 into address 5
+1 is in the table
+8 is in the table
+15 is not in the table
+22 is in the table
+29 is not in the table
+57 is in the table
+36 is not in the table
+43 is not in the table
+50 is not in the table
+15 is not in the table
+0 1 8 22 0 57 0 
