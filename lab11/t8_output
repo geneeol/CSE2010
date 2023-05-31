@@ -1,13 +1,15 @@
-Insert 1 into address 1
-Insert 8 into address 2
-Insert 15 into address 5
-Insert 22 into address 3
-Insertion Error: table is full
-Insertion Error: table is full
-Insertion Error: table is full
-Insertion Error: table is full
-Delete 15
-Insert 57 into address 5
+insert 1 into address 1
+insert 8 into address 2
+insert 15 into address 5
+insert 22 into address 3
+insertion error: table is full
+insertion error: table is full
+insertion error: table is full
+insertion error: table is full
+delete 15
+insert 57 into address 5
+insertion error: table is full
+insertion error: 8 already exists at address 2
 1 is in the table
 8 is in the table
 15 is not in the table
