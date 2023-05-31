@@ -121,16 +121,16 @@ void Insert(HashTable H, ElementType Key, int solution)
 			H->TheLists[idx] = Key;
 			if (deleted_slot[idx])
 				deleted_slot[idx] = 0;
-			fprintf(fout, "Insert %d into address %d\n", Key, idx);
+			fprintf(fout, "insert %d into address %d\n", Key, idx);
 			return;
 		}
 		if (H->TheLists[idx] == Key)
 		{
-			fprintf(fout, "Insertion Error: %d already exists at address %d\n", Key, idx);
+			fprintf(fout, "insertion error: %d already exists at address %d\n", Key, idx);
 			return;
 		}
 	}
-	fprintf(fout, "Insertion Error: table is full\n");
+	fprintf(fout, "insertion error: table is full\n");
 }
 
 // 찾으면 위치, 못찾으면 -1을 리턴하는 함수
@@ -168,12 +168,12 @@ void Delete(HashTable H, ElementType Key, int solution)
 	idx = Find2(H, Key, solution);
 	if (idx == -1)
 	{
-		fprintf(fout, "Deletion Error: %d is not in the table\n", Key);
+		fprintf(fout, "deletion error: %d is not in the table\n", Key);
 		return ;
 	}
 	H->TheLists[idx] = 0;
 	deleted_slot[idx] = 1;
-	fprintf(fout, "Delete %d\n", Key);
+	fprintf(fout, "delete %d\n", Key);
 }
 
 /*
