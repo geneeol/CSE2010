@@ -166,6 +166,7 @@ void dijkstra(Graph* g)
 				continue;
 			// 거리를 업데이트 해야하는 경우
 			// 거리를 업데이트 한 후 힙에 push
+			// TODO: 이미 힙에 업데이트 전 거리가 들어있으면 계산에 반영 x, 그냥 시간복잡도 차이.
 			if (g->nodes[i].dist > cur.dist + g->vertices[cur.vertex][i])
 			{
 				g->nodes[i].dist = cur.dist + g->vertices[cur.vertex][i];
