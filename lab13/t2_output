@@ -1,0 +1,21 @@
+left : 0, right : 9, pivot : 1
+1  1  1  1  1  1  1  1  1  1  
+left : 0, right : 8, pivot : 1
+1  1  1  1  1  1  1  1  1  -  
+left : 0, right : 7, pivot : 1
+1  1  1  1  1  1  1  1  -  -  
+left : 0, right : 6, pivot : 1
+1  1  1  1  1  1  1  -  -  -  
+left : 0, right : 5, pivot : 1
+1  1  1  1  1  1  -  -  -  -  
+left : 0, right : 4, pivot : 1
+1  1  1  1  1  -  -  -  -  -  
+left : 0, right : 3, pivot : 1
+1  1  1  1  -  -  -  -  -  -  
+left : 0, right : 2, pivot : 1
+1  1  1  -  -  -  -  -  -  -  
+left : 0, right : 1, pivot : 1
+1  1  -  -  -  -  -  -  -  -  
+
+sorting result :
+1  1  1  1  1  1  1  1  1  1  
